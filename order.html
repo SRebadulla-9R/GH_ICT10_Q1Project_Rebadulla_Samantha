@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Now - Spamie's Caldero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="restaurant.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #fff8dc;
+            font-family: 'Pixelify Sans', sans-serif;
+            color: #333;
+            padding-bottom: 100px;
+        }
+
+        header {
+            background: linear-gradient(to right, #ffb347, #ffcc33);
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-title {
+            font-size: 48px;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        .header-logo img {
+            width: 80px;
+            height: auto;
+        }
+
+        .navbar {
+            background-color: #ffcc33;
+            padding: 12px 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #4a2c00;
+            font-size: 18px;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .navbar a:hover {
+            color: #cc6600;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fffef0;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ffcc80;
+            border-radius: 8px;
+            background-color: #fff8e1;
+        }
+
+        h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: #cc6600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fffdfa;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ffedb3;
+            color: #4a2c00;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fff7e6;
+        }
+
+        tr:hover {
+            background-color: #ffeac1;
+        }
+
+        .product-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .item-name {
+            display: flex;
+            align-items: center;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #ffa500;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Pixelify Sans', sans-serif;
+        }
+
+        button:hover {
+            background-color: #e69500;
+        }
+
+        #order-summary {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff5cc;
+            border-left: 6px solid #ffa500;
+            border-radius: 8px;
+            font-size: 16px;
+            white-space: pre-line;
+            font-family: monospace;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #ffa500;
+            color: white;
+            padding: 12px 0;
+            font-size: 14px;
+            box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-title">Spamie's Caldero</div>
+        <div class="header-logo">
+            <img src="cheesecake.png" alt="Cheesecake Logo">
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="order.html">Order</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <div class="container">
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="name">Customer Name:</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="number">Contact Number:</label>
+                <input type="text" id="number" required>
+            </div>
+
+            <h3>Select Food Items:</h3>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Price (₱)</th>
+                    <th>Select</th>
+                </tr>
+                <tr>
+                    <td class="item-name"><img src="carbonara.jpg" class="product-img" alt="">Carbonara</td>
+                    <td>30</td>
+                    <td><input type="checkbox" name="food" value="Carbonara"></td>
+                </tr>
+                <tr>
+                    <td class="item-name"><img src="baked salmon.jpg" class="product-img" alt="">Baked Salmon</td>
+                    <td>45</td>
+                    <td><input type="checkbox" name="food" value="Baked Salmon"></td>
+                </tr>
+                <tr>
+                    <td class="item-name"><img src="mango kani salad.jpg" class="product-img" alt="">Mango Kani Salad</td>
+                    <td>35</td>
+                    <td><input type="checkbox" name="food" value="Mango Kani Salad"></td>
+                </tr>
+                <tr>
+                    <td class="item-name"><img src="blueberry cheesecake.jpg" class="product-img" alt="">Blueberry Cheesecake</td>
+                    <td>50</td>
+                    <td><input type="checkbox" name="food" value="Blueberry Cheesecake"></td>
+                </tr>
+                <tr>
+                    <td class="item-name"><img src="strawberry cheesecake.jpg" class="product-img" alt="">Strawberry Cheesecake</td>
+                    <td>50</td>
+                    <td><input type="checkbox" name="food" value="Strawberry Cheesecake"></td>
+                </tr>
+                <tr>
+                    <td class="item-name"><img src="bottled water.jpg" class="product-img" alt="">Bottled Water</td>
+                    <td>15</td>
+                    <td><input type="checkbox" name="food" value="Bottled Water"></td>
+                </tr>
+                <tr>
+                    <td class="item-name"><img src="iced tea.jpg" class="product-img" alt="">Iced Tea</td>
+                    <td>20</td>
+                    <td><input type="checkbox" name="food" value="Iced Tea"></td>
+                </tr>
+                <tr>
+                    <td class="item-name"><img src="spam musubi.jpg" class="product-img" alt="">Spam Musubi</td>
+                    <td>40</td>
+                    <td><input type="checkbox" name="food" value="Spam Musubi"></td>
+                </tr>
+            </table>
+
+            <button type="button" onclick="submitOrder()">Order Now</button>
+        </form>
+
+        <div id="order-summary"></div>
+    </div>
+
+    <footer>
+        Samantha Erin A. Rebadulla, 10-Ruby ©
+    </footer>
+
+    <script>
+        const prices = {
+            "Carbonara": 30,
+            "Baked Salmon": 45,
+            "Mango Kani Salad": 35,
+            "Blueberry Cheesecake": 50,
+            "Strawberry Cheesecake": 50,
+            "Bottled Water": 15,
+            "Iced Tea": 20,
+            "Spam Musubi": 40
+        };
+
+        function submitOrder() {
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const number = document.getElementById('number').value;
+            const checkboxes = document.querySelectorAll('input[name="food"]:checked');
+
+            let selectedItems = [];
+            let total = 0;
+
+            checkboxes.forEach(cb => {
+                selectedItems.push(cb.value);
+                total += prices[cb.value];
+            });
+
+            let orderSummary = "===== ORDER SUMMARY =====\n";
+            orderSummary += `Name: ${name}\n`;
+            orderSummary += `Address: ${address}\n`;
+            orderSummary += `Contact: ${number}\n`;
+            orderSummary += `Items Ordered:\n`;
+
+            selectedItems.forEach(item => {
+                orderSummary += `- ${item} - ₱${prices[item]}\n`;
+            });
+
+            orderSummary += `Total Amount: ₱${total}`;
+
+            document.getElementById('order-summary').textContent = orderSummary;
+        }
+    </script>
+</body>
+</html>
+
